@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1495385463 source:c:\users\raryssong\documents\projetos\hospital\bancodd.c
+	<stdio.h>
+	<stdlib.h>
+	"bancodd.h"
+
+1495384406 c:\users\raryssong\documents\projetos\hospital\bancodd.h
+	"paciente.h"
+
+1495322072 c:\users\raryssong\documents\projetos\hospital\paciente.h
+
+1495387167 source:c:\users\raryssong\documents\projetos\hospital\main.c
+	<stdio.h>
+	<stdlib.h>
+	"sistema.h"
+	"bancodd.h"
+	"menu.h"
+
+1495324291 c:\users\raryssong\documents\projetos\hospital\sistema.h
+	"paciente.h"
+
+1495314213 c:\users\raryssong\documents\projetos\hospital\menu.h
+
+1495323060 source:c:\users\raryssong\documents\projetos\hospital\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+	<ctype.h>
+	"menu.h"
+
+1495322070 source:c:\users\raryssong\documents\projetos\hospital\paciente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"paciente.h"
+
+1495385588 source:c:\users\raryssong\documents\projetos\hospital\sistema.c
+	<stdlib.h>
+	<stdio.h>
+	"sistema.h"
+
