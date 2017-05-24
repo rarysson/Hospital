@@ -48,6 +48,9 @@ int main(){
                             printf("\n........Procurando o(a) paciente no banco de dados........\n");
                             paciente = hash_busca(tabela_pacientes, sus);
 
+                            if(paciente != NULL && paciente_salvar(paciente) == 0) // caso a condição seja verdadeira, quer dizer que o paciente retirou seus dados do banco.
+                                paciente =  NULL;
+
                             if(paciente == NULL){
                                 printf("\nPaciente nao encontrado(a) no banco de dados");
                                 printf("\n.......Cadastrando paciente.......\n");
@@ -110,25 +113,29 @@ int main(){
                 if(paciente == NULL){
                     printf("\nDesculpe, mas voce nao esta presente no nosso banco de dados");
                 } else {
-                    printf("\nOla %s", paciente_nome(paciente));
-                    printf("\nO que voce deseja modificar?");
-                    apresenta_menu(2, 1, M1, M2);
-
-                    printf("\nOpcao: ");
-                    op_aux = le_opcao(1, 2);
-
-                    if(op_aux == 1){
-                        printf("\nDigite o novo nome: ");
-                        nome = le_nome();
-
-                        printf("\nDigite o novo telefone: ");
-                        telefone = le_inteiro();
-
-                        paciente_modifica_info(paciente, nome, telefone);
+                    if(paciente_salvar(paciente) == 0){
+                        printf("\nSeus dados ja foram retirados.");
                     } else {
-                        printf("\nLamentamos se aconteceu algum problema, esperamos que volte ao nosso hospital.");
-                        printf("\n..........Retirando os dados do nosso banco de dados.........\n");
-                        paciente_modifica_salvar(paciente, 0);
+                        printf("\nOla %s", paciente_nome(paciente));
+                        printf("\nO que voce deseja modificar?");
+                        apresenta_menu(2, 1, M1, M2);
+
+                        printf("\nOpcao: ");
+                        op_aux = le_opcao(1, 2);
+
+                        if(op_aux == 1){
+                            printf("\nDigite o novo nome: ");
+                            nome = le_nome();
+
+                            printf("\nDigite o novo telefone: ");
+                            telefone = le_inteiro();
+
+                            paciente_modifica_info(paciente, nome, telefone);
+                        } else {
+                            printf("\nLamentamos se aconteceu algum problema, esperamos que volte ao nosso hospital.");
+                            printf("\n..........Retirando os dados do nosso banco de dados.........\n");
+                            paciente_modifica_salvar(paciente, 0);
+                        }
                     }
                 }
             break;
